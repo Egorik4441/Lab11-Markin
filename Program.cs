@@ -12,15 +12,58 @@
 // }
 // Console.WriteLine(found ? "Студент найден" : "Студент не найден");
 
-int variant = 2;
-bool isPrime = true;
 
-for (int divisor = 2; divisor < variant; divisor++)
+// int variant = 2;
+// bool isPrime = true;
+
+// for (int divisor = 2; divisor < variant; divisor++)
+// {
+//     if (variant % divisor == 0)
+//     {
+//         isPrime = false;
+//         break;
+//     }
+// }
+// Console.WriteLine(isPrime ? "Номер варианта простой" : "Номер варианта составной");
+
+
+
+// int[] pointsPerLab = { 8, -1, 10, 9, -1, 7 };
+// int sum = 0;
+// int count = 0;
+
+// foreach (int points in pointsPerLab)
+// {
+//     if (points < 0)
+//     {
+//         continue;
+//     }
+//     sum += points;
+//     count++;
+// }
+
+// Console.WriteLine($"Сумма баллов за сданные работы: {sum}", "Работ сдано: {count}");
+// Console.WriteLine($"Работ сдано: {count}");
+
+
+int[] groupIds = { 101, 104, 107, 104, 110 };
+bool hasDuplicates = false;
+
+for (int i = 0; i < groupIds.Length; i++)
 {
-    if (variant % divisor == 0)
+    for (int j = i + 1; j < groupIds.Length; j++)
     {
-        isPrime = false;
+        if (groupIds[i] == groupIds[j])
+        {
+            hasDuplicates = true;
+            Console.WriteLine($"Найден дубликат: {groupIds[i]} и {groupIds[j]}");
+            break;
+        }
+    }
+    if (hasDuplicates)
+    {
         break;
     }
 }
-Console.WriteLine(isPrime ? "Номер варианта простой" : "Номер варианта составной");
+
+Console.WriteLine(hasDuplicates ? "Есть повторяющиеся номера" : "Все номера уникальны");
